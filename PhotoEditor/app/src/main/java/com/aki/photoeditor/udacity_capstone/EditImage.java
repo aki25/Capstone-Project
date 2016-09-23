@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.picassotransformations.Kernel;
+import com.picassotransformations.StackBlurTransformation;
 import com.picassotransformations.jhlabs.BlurTransformation;
 import com.github.florent37.viewanimator.ViewAnimator;
 import com.picassotransformations.jhlabs.GainTransformation;
@@ -155,7 +156,9 @@ public class EditImage extends AppCompatActivity implements EditImageFragment.Ca
                     inputImage = outputImage;
                     break;
                 case 1: // blur selected
-                    outputImage = new BlurTransformation().transform(inputImage);
+                    Bitmap blr = Bitmap.createBitmap(outputImage);
+                    StackBlurTransformation blur = new StackBlurTransformation(5);
+                    outputImage = blur.transform(blr);
                     inputImage = outputImage;
                     break;
                 case 2: // rotate selected
@@ -184,9 +187,9 @@ public class EditImage extends AppCompatActivity implements EditImageFragment.Ca
                             0.0f, -1f,  0.0f
                     };
                     Kernel kernel = new Kernel(3,3,sharpenMatrix);
-                    BlurTransformation blur = new BlurTransformation();
-                    blur.setKernel(kernel);
-                    outputImage = blur.transform(inputImage);
+                    BlurTransformation sharpen = new BlurTransformation();
+                    sharpen.setKernel(kernel);
+                    outputImage = sharpen.transform(inputImage);
                     inputImage = outputImage;
                     break;
 //

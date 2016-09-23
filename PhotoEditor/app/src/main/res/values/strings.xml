@@ -138,4 +138,12 @@
     <string name="storage_access_fail">Failed to access storage device!</string>
     <string name="failed_new_dir">Failed to make a New Directory For Application</string>
     <string name="sd_missing">SD card Not Found</string>
+
+
+    <string name="write_sd_rationale">Permission is needed to edit and save images.</string>
+    <string name="settings_dialog_canceled">App will not be able to function without the permission</string>
+    <string name="rationale_ask_again">Go to Setting -> Permissions and allow the permission for the app to function properly.</string>
+    <string name="setting">Settings</string>
+    <string name="cancel">Cancel</string>
+
 </resources>

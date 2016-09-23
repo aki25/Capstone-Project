@@ -1,8 +1,10 @@
 package com.aki.photoeditor.udacity_capstone;
 
+import android.*;
 import android.appwidget.AppWidgetManager;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -15,7 +17,9 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -45,10 +49,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.EasyPermissions;
+
+public class MainActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks{
 
     public final static String DIRECTORY_LOCATION = "/PhotoEditorUdacity";
     public final static String DIRECTORY_LOCATION_WALLPAPERS = "/PEWallpapers";
@@ -57,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     public static String IMAGE_FILENAME_SD;
     private static final int IMAGE_GALLERY_REQUEST = 20;
     private static final int CAMERA_REQUEST = 200;
+    final int requestCodeWriteSD = 1001;
     private Uri imageURI;
     private ProgressBar progressBar;
     private FloatingActionButton fab;
@@ -74,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setVisibility(View.INVISIBLE);
         ConnectivityManager cm = (ConnectivityManager)getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        int permissionCheck = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        methodRequiresTwoPermission();
         boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         boolean getWallpaper = sharedPreferences.getBoolean(getString(R.string.wallpaper_pref_key),true);
@@ -99,6 +110,46 @@ public class MainActivity extends AppCompatActivity {
         String imageFileName = DIRECTORY_LOCATION+"_"+timeStamp+".jpeg";
         IMAGE_FILENAME_SD = imageFileName;
         Log.v("file_name",IMAGE_FILENAME_SD);
+    }
+
+
+    @AfterPermissionGranted(requestCodeWriteSD)
+    private void methodRequiresTwoPermission() {
+        String[] perms = {android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        if (EasyPermissions.hasPermissions(this, perms)) {
+            // Already have permission, do the thing
+            // ...
+        } else {
+            // Do not have permissions, request them now
+            EasyPermissions.requestPermissions(this, getString(R.string.write_sd_rationale), requestCodeWriteSD, perms);
+        }
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, List<String> perms) {
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, List<String> perms) {
+        // Handle negative button on click listener. Pass null if you don't want to handle it.
+        DialogInterface.OnClickListener cancelButtonListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Let's show a toast
+                Toast.makeText(getApplicationContext(), R.string.settings_dialog_canceled, Toast.LENGTH_SHORT)
+                        .show();
+            }
+        };
+
+        // (Optional) Check whether the user denied permissions and checked NEVER ASK AGAIN.
+        // This will display a dialog directing them to enable the permission in app settings.
+        EasyPermissions.checkDeniedPermissionsNeverAskAgain(
+                this,
+                getString(R.string.rationale_ask_again),
+                R.string.setting,
+                R.string.cancel,
+                cancelButtonListener,
+                perms);
     }
 
     public void downloadWallpaper(View v){
@@ -362,4 +413,11 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
 }

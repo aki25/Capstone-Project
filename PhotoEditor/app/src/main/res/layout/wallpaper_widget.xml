@@ -1,0 +1,24 @@
+
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:padding="@dimen/widget_margin"
+        android:id="@+id/widget"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/widget_wallpaper_view"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/wallpaper"/>
+        <TextView
+            android:id="@+id/widget_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:text="@string/empty_widget"
+            android:contentDescription="@string/empty_widget"/>
+    </FrameLayout>

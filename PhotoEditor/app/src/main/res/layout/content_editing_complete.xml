@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/relativeLayout"
+    android:background="@color/colorPrimaryLight">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:id="@+id/linearLayoutEdited"
+        android:layout_above="@+id/ad">
+
+        <Button
+            android:text="@string/newImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/editNew"
+            android:onClick="editNewImage"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorText"
+            android:layout_margin="16dp"
+            style="?android:attr/buttonBarButtonStyle"
+            android:contentDescription="@string/newImage"/>
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/wallpaperButton"
+        android:text="@string/wallpaper"
+        android:onClick="setAsWallpaper"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorText"
+        android:layout_margin="16dp"
+        style="?android:attr/buttonBarButtonStyle"
+        android:contentDescription="@string/set_as"/>
+
+
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:layout_above="@+id/linearLayoutEdited"
+        android:id="@+id/frame_layout">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:id="@+id/editing_done_display"
+            android:layout_gravity="center"
+            android:contentDescription="@string/edited_image_description" />
+    </FrameLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/floatingActionShareButton"
+        app:elevation="12dp"
+        android:layout_gravity="center"
+        android:onClick="shareImage"
+        app:srcCompat="@drawable/share_variant"
+        android:layout_marginRight="6dp"
+        android:layout_marginEnd="6dp"
+        android:contentDescription="@string/share"
+        android:layout_above="@id/linearLayoutEdited"
+        android:layout_alignEnd="@id/frame_layout"
+        android:layout_alignRight="@id/frame_layout" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/ad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="15dp"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_bottom_ad">
+    </com.google.android.gms.ads.AdView>
+
+</RelativeLayout>

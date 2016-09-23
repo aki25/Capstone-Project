@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "742125536165",
+    "firebase_url": "https://udacity-captsone.firebaseio.com",
+    "project_id": "udacity-captsone",
+    "storage_bucket": "udacity-captsone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742125536165:android:9577aed610fa2b44",
+        "android_client_info": {
+          "package_name": "com.aki.photoeditor.udacity_capstone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "742125536165-lfbntkn0eed4l19stofi3jl6li50vu57.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALqH4P3mjK4tkIsG4-y9DMyHNWTBmgpzI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+app:layout_behavior="@string/appbar_scrolling_view_behavior"
+android:id="@+id/content_manage_wallpaper"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.aki.photoeditor.udacity_capstone.ManageWallpaper"
+tools:showIn="@layout/activity_manage_wallpaper"
+    android:background="@color/colorPrimaryLight">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:id="@+id/linearLayout"
+    android:layout_alignParentBottom="true">
+
+    <Button
+        android:text="@string/delete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/editNew"
+        android:onClick="deleteWallpaper"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorText"
+        android:layout_margin="16dp"
+        style="?android:attr/buttonBarButtonStyle"
+        android:contentDescription="@string/delete"/>
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/wallpaperButton"
+        android:text="@string/wallpaper"
+        android:onClick="setAsWallpaper"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorText"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/set_as"
+        style="?android:attr/buttonBarButtonStyle"/>
+
+
+</LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/floatingActionShareButton"
+        app:elevation="12dp"
+        android:layout_gravity="center|end"
+        android:onClick="shareImage"
+        app:srcCompat="@drawable/share_variant"
+        android:layout_above="@id/linearLayout"
+        android:contentDescription="@string/share"
+        android:layout_alignRight="@+id/setWallpaperView"
+        android:layout_alignEnd="@+id/setWallpaperView"
+        android:layout_margin="6dp"/>
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="16dp"
+    android:layout_above="@id/linearLayout"
+    android:id="@+id/setWallpaperView"
+    android:adjustViewBounds="true"
+    android:scaleType="fitCenter"
+    android:layout_margin="16dp"
+    android:contentDescription="@string/wallpaper_description" />
+
+
+</RelativeLayout>

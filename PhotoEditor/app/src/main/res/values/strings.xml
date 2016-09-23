@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">Photo Editor</string>
+    <string name="action_settings">Settings</string>
+
+    <!--Main Activity strings-->
+    <string name="img_desc_camera">Take photo using camera</string>
+    <string name="img_desc_photo">Select an image from the device</string>
+    <string name="title_activity_edit_image">Edit Image</string>
+
+    <!--Edit Image Activity Initial Fragment Strings-->
+    <string name="undoButtonImgLoaded">Undo Effect</string>
+    <string name="saveImageButton">Save Image</string>
+    <string name="undoButton">Undo Last Effect</string>
+
+    <!--Copied from inital draft-->
+    <string name="blurImage">Blur</string>
+    <string name="blurButton">Blur</string>
+    <string name="rotateButton">Rotate</string>
+    <string name="brightnessButton">Brightness</string>
+    <string name="applyButtonForAll">Save Effect</string>
+    <string name="backButtonForAll">Discard Effect</string>
+    <string name="mirrorHorButton">Flip 1</string>
+    <string name="mirrorVertButton">Flip 2</string>
+    <string name="grayScaleButtonText"> GreyScale </string>
+    <string name="sharpenButton">Sharpen</string>
+
+
+    <string name="filter1"><i>Contrast</i></string>
+    <string name="filter2"><i>Glass</i></string>
+    <string name="filter3"><i>Kaleidoscope</i></string>
+    <string name="filter4"><i>Painting</i></string>
+    <string name="filter5"><i>Wrap Around</i></string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_auto_load_wallpaper">Download wallpaper on app launch</string>
+    <string name="pref_description_load_wallpaper">Applied changes required app restart to take effect.
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="action_manageWallpapers">Manage Wallpapers</string>
+    <string name="title_activity_manage_wallpapers">ManageWallpapers</string>
+    <string name="title_activity_manage_wallpaper">Manage Wallpaper</string>
+    <string name="wallpaper">Set As</string>
+    <string name="delete">Delete</string>
+    <string name="set_as">Set As</string>
+    <string name="newImage">Edit New Image</string>
+    <string name="title_activity_editing_complete">Looking Good!</string>
+    <string name="empty_widget">No saved wallpapers</string>
+    <string name="image_for_editing_description">Image For Editing</string>
+    <string name="edited_image_description">Edited Image</string>
+    <string name="wallpaper_description">Wallpaper</string>
+    <string name="saveButtonDescription">Finish Editing</string>
+    <string name="download_wallpaper_description">Download Wallpaper</string>
+    <string name="share">Share Image</string>
+    <string name="brightnessDescription">Adjust Brightness</string>
+    <string name="flip_h_description">Flip image horizontally</string>
+    <string name="flip_v_description">Flip image vertically</string>
+    <string name="gray_description">Black and white effect</string>
+    <string name="filter1_description">Contrast filter</string>
+    <string name="filter2_description">Glass filter</string>
+    <string name="filter3_desc">Kaleidoscope Effect</string>
+    <string name="filter4_desc">Painting effect</string>
+    <string name="notConnected">Internet not available. Cannot fetch wallpaper.</string>
+    <string name="banner_bottom_ad">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="wallpaper_pref_key">wallpaper_switch</string>
+    <string name="wallpaper_pref_key_def">true</string>
+    <string name="enable_wallpaper_download">Wallpaper download disabled</string>
+    <string name="failed_image_load">Failed to load the image</string>
+    <string name="share_via">Share via</string>
+    <string name="wallpaper_saved">Wallpaper saved</string>
+    <string name="storage_access_fail">Failed to access storage device!</string>
+    <string name="failed_new_dir">Failed to make a New Directory For Application</string>
+    <string name="sd_missing">SD card Not Found</string>
+</resources>

@@ -1,0 +1,9 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="@string/wallpaper_pref_key_def"
+        android:key="@string/wallpaper_pref_key"
+        android:summary="@string/pref_description_load_wallpaper"
+        android:title="@string/pref_title_auto_load_wallpaper" />
+
+</PreferenceScreen>
